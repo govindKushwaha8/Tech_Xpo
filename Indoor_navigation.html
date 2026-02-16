@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Railway Station</title>
+
+<style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body - Updated Attractive Background */
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #6a11cb);
+    background-size: 300% 300%;
+    animation: gradientMove 8s ease infinite;
+    color: white;
+}
+
+/* Background Animation */
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Top Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #ffd369;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 32px;
+    color: #ffd369;
+}
+
+/* Search Bar */
+.search-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.search-container input {
+    width: 40%;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Buttons Section */
+.station-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px;
+    width: 80%;
+    margin: auto;
+}
+
+.station-btn {
+    background: linear-gradient(145deg, #ffffff, #f1f1f1);
+    color: #1e3c72;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.station-btn:hover {
+    background: linear-gradient(145deg, #ffd369, #ffb703);
+    transform: scale(1.05);
+    color: #000;
+}
+
+/* Responsive */
+@media(max-width: 900px){
+    .station-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px){
+    .station-container {
+        grid-template-columns: 1fr;
+    }
+
+    .search-container input {
+        width: 70%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="#">Stations</a>
+    <a href="#">Accessibility</a>
+    <a href="#">Contact</a>
+</div>
+
+<!-- Title -->
+<div class="title">
+    🚆 Available Railway Station
+</div>
+
+<!-- Search Bar -->
+<div class="search-container">
+    <input type="text" placeholder="Search Station...">
+</div>
+
+<!-- Station Buttons -->
+<div class="station-container">
+ <a href="https://iamrjnish.github.io/Smart-Navigation-system/" 
+   class="station-btn" 
+   target="_blank">
+   New Delhi Junction (NDLS)
+</a>
+
+  <a href="station_gzb.html" class="station-btn">Ghaziabad Junction (GZB)</a>
+  <a href="station_cnb.html" class="station-btn">Kanpur Central (CNB)</a>
+  <a href="station_ljn.html" class="station-btn">Lucknow Junction (LJN)</a>
+  <a href="station_bsb.html" class="station-btn">Varanasi Junction (BSB)</a>
+  <a href="station_pryj.html" class="station-btn">Prayagraj Junction (PRYJ)</a>
+</div>
+
+</body>
+</html>

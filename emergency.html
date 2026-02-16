@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Emergency Contacts - RailNav</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg, #141e30, #243b55, #4e73df);
+  background-size: 300% 300%;
+  animation: bgMove 10s ease infinite;
+  color:white;
+  padding:60px 40px;
+}
+
+/* Background animation */
+@keyframes bgMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+h1{
+  font-size:38px;
+  margin-bottom:15px;
+  color:#ffd369;
+}
+
+.intro{
+  max-width:700px;
+  margin-bottom:40px;
+  font-size:16px;
+  line-height:1.6;
+  opacity:0.9;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.card{
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.5);
+}
+
+.card h2{
+  font-size:18px;
+  margin-bottom:10px;
+  color:#ffd369;
+}
+
+.card p{
+  font-size:14px;
+  margin-bottom:6px;
+  opacity:0.9;
+}
+
+.important{
+  background:#ff4d4d;
+  color:white;
+  font-weight:bold;
+  padding:4px 10px;
+  border-radius:8px;
+  display:inline-block;
+  margin-top:8px;
+}
+
+.back{
+  display:inline-block;
+  margin-top:40px;
+  text-decoration:none;
+  color:#ffd369;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.back:hover{
+  text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🚨 All Emergency Contacts</h1>
+
+<p class="intro">
+Your safety is our top priority. Below is the list of important emergency helpline numbers 
+available 24/7 to assist passengers during travel. Please do not hesitate to contact 
+the relevant authority in case of any emergency situation.
+</p>
+
+<div class="grid">
+
+  <div class="card">
+    <h2>🚓 Railway Protection Force (RPF)</h2>
+    <p>Railway security & crime reporting</p>
+    <p><strong>Helpline:</strong> 182</p>
+    <span class="important">24/7 Active</span>
+  </div>
+
+  <div class="card">
+    <h2>🚑 Medical Emergency</h2>
+    <p>Ambulance & health emergencies</p>
+    <p><strong>Helpline:</strong> 108</p>
+    <span class="important">Immediate Response</span>
+  </div>
+
+  <div class="card">
+    <h2>🔥 Fire Emergency</h2>
+    <p>Fire hazards & rescue services</p>
+    <p><strong>Helpline:</strong> 101</p>
+  </div>
+
+  <div class="card">
+    <h2>🚨 National Emergency</h2>
+    <p>Police, fire, ambulance unified</p>
+    <p><strong>Helpline:</strong> 112</p>
+  </div>
+
+  <div class="card">
+    <h2>📞 Railway General Enquiry</h2>
+    <p>Train & platform information</p>
+    <p><strong>Helpline:</strong> 139</p>
+  </div>
+
+  <div class="card">
+    <h2>👶 Child Helpline</h2>
+    <p>For missing or distressed children</p>
+    <p><strong>Helpline:</strong> 1098</p>
+  </div>
+
+  <div class="card">
+    <h2>👩 Women Safety Helpline</h2>
+    <p>Emergency assistance for women</p>
+    <p><strong>Helpline:</strong> 181</p>
+  </div>
+
+  <div class="card">
+    <h2>♿ Divyang / Accessibility Help</h2>
+    <p>Assistance for differently-abled passengers</p>
+    <p><strong>Station Help Desk</strong></p>
+  </div>
+
+</div>
+
+<a href="index.html" class="back">← Back to Home</a>
+
+</body>
+</html>

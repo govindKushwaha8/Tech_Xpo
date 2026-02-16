@@ -1,0 +1,227 @@
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0b0f1a;
+  color: #ffffff;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  height: 100vh;
+  background: url("m3.png") center / cover no-repeat;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.55)
+  );
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  position: relative;
+  z-index: 2;
+  padding: 18px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  color: #4da6ff;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e6eaf2;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border-radius: 22px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a i {
+  font-size: 1rem;
+  color: #4da6ff;
+}
+
+.nav-links a:hover {
+  background: rgba(77, 166, 255, 0.18);
+  box-shadow: 0 0 12px rgba(77, 166, 255, 0.45);
+  transform: translateY(-1px);
+}
+
+/* LOGIN BUTTON */
+.btn-outline {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 8px 22px;
+  border-radius: 22px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #4da6ff;
+  color: #000;
+  border-color: #4da6ff;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 130px 60px;
+}
+
+.hero-content h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.15rem;
+  color: #cfd6e4;
+  margin-bottom: 34px;
+}
+
+/* HERO BUTTONS */
+.hero-buttons button {
+  margin-right: 16px;
+}
+
+button {
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #4da6ff;
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: #78bbff;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #4da6ff;
+}
+
+.btn-secondary:hover {
+  background: rgba(77, 166, 255, 0.15);
+}
+
+/* =========================
+   FEATURES SECTION (FIXED)
+========================= */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 90px 60px;
+  background: linear-gradient(180deg, #0f1525, #0b0f1a);
+}
+
+/* WHITE FEATURE BUTTONS */
+.feature-btn {
+  background: #ffffff;
+  padding: 34px 28px;
+  border-radius: 18px;
+  width: 280px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.feature-btn:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 16px 45px rgba(77, 166, 255, 0.35);
+}
+
+.feature-btn h3 {
+  margin-bottom: 14px;
+  font-size: 1.15rem;
+  color: #0b5ed7;
+}
+
+.feature-btn p {
+  font-size: 0.95rem;
+  color: #555555;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 22px;
+  background: #0b0f1a;
+  font-size: 0.85rem;
+  color: #8f9bb3;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-content {
+    padding: 100px 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+}

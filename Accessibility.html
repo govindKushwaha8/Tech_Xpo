@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accessibility Facilities | RailNav</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #0f1525, #0b0f1a);
+      color: #ffffff;
+    }
+
+    /* HEADER */
+    header {
+      padding: 30px 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    header h1 {
+      color: #4da6ff;
+      font-size: 2rem;
+    }
+
+    header p {
+      color: #cfd6e4;
+      margin-top: 6px;
+      font-size: 0.95rem;
+    }
+
+    /* ACCESSIBILITY LIST */
+    .accessibility-container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .access-card {
+      background: #ffffff;
+      color: #000;
+      padding: 28px 24px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+    }
+
+    .access-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(77,166,255,0.35);
+    }
+
+    .access-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: #0b5ed7;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .access-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 22px;
+      font-size: 0.85rem;
+      color: #8f9bb3;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>♿ Accessibility Facilities</h1>
+    <p>Inclusive navigation and facilities for all passengers at railway stations</p>
+  </header>
+
+  <!-- ACCESSIBILITY LIST -->
+  <section class="accessibility-container">
+
+    <div class="access-card">
+      <h3>♿ Wheelchair Access</h3>
+      <p>Barrier-free pathways and ramps for smooth wheelchair movement across platforms.</p>
+    </div>
+
+    <div class="access-card">
+      <h3>🛗 Lifts & Elevators</h3>
+      <p>Elevators connecting platforms, foot over bridges, and station exits.</p>
+    </div>
+
+    <div class="access-card">
+      <h3>🚻 Accessible Washrooms</h3>
+      <p>Specially designed washrooms with support rails and wide entry doors.</p>
+    </div>
+
+    <div class="access-card">
+      <h3>🧭 Tactile Pathways</h3>
+      <p>Guiding tactile tiles to assist visually impaired passengers.</p>
+    </div>
+
+    <div class="access-card">
+      <h3>🔊 Audio Announcements</h3>
+      <p>Clear and frequent audio announcements for train and platform updates.</p>
+    </div>
+
+    <div class="access-card">
+      <h3>👩‍✈️ Assistance Staff</h3>
+      <p>On-demand railway staff support for senior citizens and Divyang passengers.</p>
+    </div>
+
+    <div class="access-card">
+      <h3>🚪 Priority Entry & Exit</h3>
+      <p>Dedicated gates and priority boarding for passengers with special needs.</p>
+    </div>
+
+    <div class="access-card">
+      <h3>📍 Smart Navigation Support</h3>
+      <p>Digital maps highlighting accessible routes and facilities in real time.</p>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    RailNav · Smart Navigation Inside Railway Stations · Hackathon Project
+  </footer>
+
+</body>
+</html>

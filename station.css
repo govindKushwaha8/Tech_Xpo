@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0b0f1a;
+  color: #ffffff;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 50px 20px 30px;
+}
+
+.header h2 {
+  font-size: 2.2rem;
+  color: #4da6ff;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #cfd6e4;
+  font-size: 1rem;
+}
+
+/* STATIONS GRID */
+.stations-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 30px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* STATION CARD */
+.station-card {
+  background: linear-gradient(145deg, #161d33, #10162a);
+  padding: 22px;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.station-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 40px rgba(77, 166, 255, 0.35);
+  background: linear-gradient(145deg, #868ead, #141c36);
+}

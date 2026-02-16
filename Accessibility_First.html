@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Station Services | RailNav</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI", sans-serif;
+}
+
+body{
+  background:#0b0f1a;
+  color:#ffffff;
+}
+
+.container{
+  display:flex;
+  height:100vh;
+}
+
+/* LEFT SIDE STATION LIST */
+.sidebar{
+  width:320px;
+  background:#0f1525;
+  padding:20px;
+  overflow-y:auto;
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar h2{
+  color:#4da6ff;
+  margin-bottom:20px;
+}
+
+.station{
+  background:#141b30;
+  padding:14px 16px;
+  border-radius:14px;
+  margin-bottom:14px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.station:hover,
+.station.active{
+  background:#4da6ff;
+  color:#000;
+}
+
+/* RIGHT SIDE CONTENT */
+.content{
+  flex:1;
+  padding:40px;
+}
+
+.content h1{
+  color:#4da6ff;
+  margin-bottom:30px;
+}
+
+/* SERVICE CARDS */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#ffffff;
+  color:#000;
+  padding:26px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.card h3{
+  color:#0b5ed7;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#555;
+  font-size:0.95rem;
+  line-height:1.5;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .container{flex-direction:column;}
+  .sidebar{width:100%;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT STATIONS -->
+  <div class="sidebar">
+    <h2>🚉 Stations</h2>
+
+    <div class="station active" onclick="loadStation('NDLS',this)">New Delhi Junction (NDLS)</div>
+    <div class="station" onclick="loadStation('GZB',this)">Ghaziabad Junction (GZB)</div>
+    <div class="station" onclick="loadStation('CNB',this)">Kanpur Central (CNB)</div>
+    <div class="station" onclick="loadStation('LJN',this)">Lucknow Junction (LJN)</div>
+    <div class="station" onclick="loadStation('BSB',this)">Varanasi Junction (BSB)</div>
+    <div class="station" onclick="loadStation('AGC',this)">Agra Cantt (AGC)</div>
+    <div class="station" onclick="loadStation('JP',this)">Jaipur Junction (JP)</div>
+    <div class="station" onclick="loadStation('KOTA',this)">Kota Junction (KOTA)</div>
+    <div class="station" onclick="loadStation('BPL',this)">Bhopal Junction (BPL)</div>
+    <div class="station" onclick="loadStation('PNBE',this)">Patna Junction (PNBE)</div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="content">
+    <h1 id="stationTitle">New Delhi Junction (NDLS)</h1>
+
+    <div class="services">
+      <div class="card">
+        <h3>🏥 Medical Emergency</h3>
+        <p id="medical"></p>
+      </div>
+
+      <div class="card">
+        <h3>♿ Wheelchair Assistance</h3>
+        <p id="wheelchair"></p>
+      </div>
+
+      <div class="card">
+        <h3>🎫 TC / Ticket Help</h3>
+        <p id="tc"></p>
+      </div>
+
+      <div class="card">
+        <h3>👮 CRPF / RPF Location</h3>
+        <p id="crpf"></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const stationData = {
+  NDLS:{
+    name:"New Delhi Junction (NDLS)",
+    medical:"Medical room near Platform 2, left side of FOB.",
+    wheelchair:"Wheelchair help desk at Gate No.1, enquiry counter.",
+    tc:"TC office inside main ticket hall, Counter A.",
+    crpf:"RPF control room near Gate No.2, left side."
+  },
+  GZB:{
+    name:"Ghaziabad Junction (GZB)",
+    medical:"Medical facility near Platform 3, waiting hall side.",
+    wheelchair:"Wheelchair desk at Gate No.1, parking area.",
+    tc:"TC help counter near Platform 1.",
+    crpf:"CRPF/RPF office at Gate No.2, left side."
+  },
+  CNB:{
+    name:"Kanpur Central (CNB)",
+    medical:"Medical room near Platform 5, lift ke paas.",
+    wheelchair:"Wheelchair service at Gate No.3, enquiry booth.",
+    tc:"TC office near reservation counter.",
+    crpf:"RPF post near Platform 8, FOB side."
+  },
+  LJN:{
+    name:"Lucknow Junction (LJN)",
+    medical:"Medical emergency room near Platform 1, right side.",
+    wheelchair:"Wheelchair desk at main entry Gate No.1.",
+    tc:"TC cabin near general ticket counter hall.",
+    crpf:"RPF room near Gate No.2, parking side."
+  },
+  BSB:{
+    name:"Varanasi Junction (BSB)",
+    medical:"Medical room near Platform 4, elevator ke paas.",
+    wheelchair:"Wheelchair help desk at Gate No.1.",
+    tc:"TC office near Platform 2 checking area.",
+    crpf:"CRPF/RPF office near Gate No.3."
+  },
+  AGC:{
+    name:"Agra Cantt (AGC)",
+    medical:"Medical room near Platform 2, waiting hall.",
+    wheelchair:"Wheelchair desk at main gate, enquiry counter.",
+    tc:"TC office near ticket booking hall.",
+    crpf:"RPF post near Gate No.2, left side."
+  },
+  JP:{
+    name:"Jaipur Junction (JP)",
+    medical:"Medical facility near Platform 1, retiring room side.",
+    wheelchair:"Wheelchair desk at Gate No.1, help kiosk.",
+    tc:"TC counter near reservation hall.",
+    crpf:"RPF control room near Platform 7."
+  },
+  KOTA:{
+    name:"Kota Junction (KOTA)",
+    medical:"Medical room near Platform 3, station office side.",
+    wheelchair:"Wheelchair assistance at Gate No.2.",
+    tc:"TC cabin near ticket counters.",
+    crpf:"RPF post near Gate No.1."
+  },
+  BPL:{
+    name:"Bhopal Junction (BPL)",
+    medical:"Medical room near Platform 6, FOB ke niche.",
+    wheelchair:"Wheelchair desk at Gate No.3.",
+    tc:"TC office near reservation counter hall.",
+    crpf:"CRPF/RPF room near Platform 1."
+  },
+  PNBE:{
+    name:"Patna Junction (PNBE)",
+    medical:"Medical emergency room near Platform 5, left side.",
+    wheelchair:"Wheelchair help desk at Gate No.1, enquiry counter.",
+    tc:"TC office near main booking hall.",
+    crpf:"RPF post near Gate No.2, right side."
+  }
+};
+
+function loadStation(code, el){
+  document.getElementById("stationTitle").innerText = stationData[code].name;
+  document.getElementById("medical").innerText = stationData[code].medical;
+  document.getElementById("wheelchair").innerText = stationData[code].wheelchair;
+  document.getElementById("tc").innerText = stationData[code].tc;
+  document.getElementById("crpf").innerText = stationData[code].crpf;
+
+  document.querySelectorAll(".station").forEach(s=>s.classList.remove("active"));
+  el.classList.add("active");
+}
+
+loadStation("NDLS", document.querySelector(".station.active"));
+</script>
+
+</body>
+</html>

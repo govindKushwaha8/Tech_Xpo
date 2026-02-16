@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works - RailNav</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg, #141e30, #243b55, #4e73df);
+  background-size: 300% 300%;
+  animation: bgMove 10s ease infinite;
+  color:white;
+  padding:60px 40px;
+}
+
+@keyframes bgMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+}
+
+h1{
+  font-size:38px;
+  margin-bottom:50px;
+  color:#ffd369;
+}
+
+.step{
+  display:flex;
+  align-items:flex-start;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  padding:30px;
+  margin-bottom:30px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+
+.step:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.5);
+}
+
+.step-number{
+  font-size:30px;
+  font-weight:bold;
+  margin-right:25px;
+  color:#ffd369;
+  min-width:40px;
+}
+
+.step-content h2{
+  font-size:22px;
+  margin-bottom:12px;
+  color:#ffd369;
+}
+
+.step-content p{
+  font-size:15px;
+  line-height:1.8;
+  opacity:0.95;
+}
+
+.highlight{
+  margin-top:60px;
+  background:#ffd369;
+  color:black;
+  padding:25px;
+  border-radius:18px;
+  text-align:center;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.back{
+  display:inline-block;
+  margin-top:40px;
+  text-decoration:none;
+  color:#ffd369;
+  font-size:16px;
+}
+
+.back:hover{
+  text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>How RailNav Works</h1>
+
+<div class="step">
+  <div class="step-number">1</div>
+  <div class="step-content">
+    <h2>Select Your Station</h2>
+    <p>
+      Choose your railway station from the available station list. 
+      Each station includes updated navigation details and facility information. 
+      This ensures you get accurate guidance before and during your journey.
+    </p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-number">2</div>
+  <div class="step-content">
+    <h2>View Available Facilities</h2>
+    <p>
+      Instantly access locations of platforms, washrooms, lifts, exits, waiting halls, ticket counters, and parking areas. 
+      All facilities are clearly organized for easy understanding. 
+      This helps passengers save time and avoid unnecessary confusion.
+    </p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-number">3</div>
+  <div class="step-content">
+    <h2>Use Smart Navigation</h2>
+    <p>
+      Follow simple and clear step-by-step directions inside the station. 
+      RailNav provides structured guidance to reach your destination quickly. 
+      The system reduces stress and makes station navigation smooth and efficient.
+    </p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-number">4</div>
+  <div class="step-content">
+    <h2>Access Emergency Support</h2>
+    <p>
+      Get immediate access to important emergency contacts and helplines. 
+      Information for Railway Police, medical services, and safety support is always available. 
+      Your safety and security remain our highest priority at all times.
+    </p>
+  </div>
+</div>
+
+<div class="highlight">
+  🚆 Simple. Fast. Reliable navigation inside railway stations.
+</div>
+
+<a href="index.html" class="back">← Back to Home</a>
+
+</div>
+
+</body>
+</html>

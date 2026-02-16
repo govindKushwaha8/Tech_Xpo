@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Station | RailNav</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #4e73df, #6f42c1);
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .header h2 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* STATIONS GRID */
+    .stations-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 30px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    /* STATION CARD */
+    .station-card {
+      background: #ffffff;
+      color: #333;
+      padding: 22px;
+      border-radius: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      font-weight: 500;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .station-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      background: linear-gradient(135deg, #4e73df, #6f42c1);
+      color: #fff;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h2>🚆 Available Railway Stations</h2>
+  </header>
+
+  <!-- STATIONS GRID -->
+  <section class="stations-container">
+
+    <div class="station-card">New Delhi Junction (NDLS)</div>
+    <div class="station-card">Ghaziabad Junction (GZB)</div>
+    <div class="station-card">Kanpur Central (CNB)</div>
+    <div class="station-card">Lucknow Junction (LJN)</div>
+    <div class="station-card">Varanasi Junction (BSB)</div>
+
+    <div class="station-card">Prayagraj Junction (PRYJ)</div>
+    <div class="station-card">Agra Cantt (AGC)</div>
+    <div class="station-card">Meerut City (MTC)</div>
+    <div class="station-card">Bareilly Junction (BE)</div>
+    <div class="station-card">Moradabad Junction (MB)</div>
+
+    <div class="station-card">Jaipur Junction (JP)</div>
+    <div class="station-card">Kota Junction (KOTA)</div>
+    <div class="station-card">Bhopal Junction (BPL)</div>
+    <div class="station-card">Indore Junction (INDB)</div>
+    <div class="station-card">Gwalior Junction (GWL)</div>
+
+    <div class="station-card">Patna Junction (PNBE)</div>
+    <div class="station-card">Howrah Junction (HWH)</div>
+    <div class="station-card">Sealdah (SDAH)</div>
+    <div class="station-card">Mumbai Central (MMCT)</div>
+    <div class="station-card">Chennai Central (MAS)</div>
+
+  </section>
+
+</body>
+</html>

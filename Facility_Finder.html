@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facility Finder</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    display:flex;
+    min-height:100vh;
+    background:linear-gradient(135deg,#0a0f2c,#0e1a40);
+    color:white;
+}
+
+/* Sidebar */
+.sidebar{
+    width:260px;
+    background:#0b132b;
+    padding:25px 15px;
+    overflow-y:auto;
+}
+
+.sidebar h2{
+    margin-bottom:20px;
+    color:#4da3ff;
+}
+
+.station{
+    padding:12px 15px;
+    margin-bottom:10px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+    background:rgba(255,255,255,0.05);
+}
+
+.station:hover, .station.active{
+    background:#4da3ff;
+    color:black;
+    transform:translateX(5px);
+}
+
+/* Main */
+.main{
+    flex:1;
+    padding:50px 40px;
+}
+
+.main h1{
+    margin-bottom:30px;
+    font-size:32px;
+    color:#4da3ff;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#e5e5e5;
+    color:#333;
+    padding:22px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card h2{
+    margin-bottom:8px;
+    color:#1e60d4;
+    font-size:16px;
+}
+
+.card p{
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* Responsive */
+@media(max-width:900px){
+    body{
+        flex-direction:column;
+    }
+    .sidebar{
+        width:100%;
+        display:flex;
+        overflow-x:auto;
+    }
+    .station{
+        min-width:200px;
+        margin-right:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>🚉 Stations</h2>
+    <div class="station active" onclick="loadStation('ndls', this)">New Delhi</div>
+    <div class="station" onclick="loadStation('mumbai', this)">Mumbai Central</div>
+    <div class="station" onclick="loadStation('chennai', this)">Chennai Central</div>
+    <div class="station" onclick="loadStation('howrah', this)">Howrah Junction</div>
+    <div class="station" onclick="loadStation('bangalore', this)">Bangalore City</div>
+    <div class="station" onclick="loadStation('hyderabad', this)">Hyderabad Deccan</div>
+    <div class="station" onclick="loadStation('ahmedabad', this)">Ahmedabad Junction</div>
+    <div class="station" onclick="loadStation('jaipur', this)">Jaipur Junction</div>
+    <div class="station" onclick="loadStation('lucknow', this)">Lucknow Junction</div>
+    <div class="station" onclick="loadStation('varanasi', this)">Varanasi Junction</div>
+</div>
+
+<div class="main">
+    <h1 id="stationTitle">New Delhi - Facility Finder</h1>
+    <div class="grid" id="facilityContainer"></div>
+</div>
+
+<script>
+const stationData = {
+
+ndls:{title:"New Delhi",facilities:[
+["🚻 Washrooms","Platforms 1, 4 & 8. Accessible washrooms near FOB."],
+["🛗 Lifts","Near Gate 1 and Platform 16 bridge."],
+["🚪 Exits","Ajmeri Gate & Paharganj side exits."],
+["🎟 Ticket Counters","Main hall counters A1–A12."],
+["🪑 Waiting Areas","AC lounge near Platform 3."],
+["🅿 Parking","Underground parking at Paharganj side."]
+]},
+
+mumbai:{title:"Mumbai Central",facilities:[
+["🚻 Washrooms","Platforms 2 & 5."],
+["🛗 Lifts","North FOB and concourse area."],
+["🚪 Exits","Bellasis Road main exit."],
+["🎟 Ticket Counters","Ground floor booking office."],
+["🪑 Waiting Areas","Executive lounge near Platform 1."],
+["🅿 Parking","Multi-level parking opposite station."]
+]},
+
+chennai:{title:"Chennai Central",facilities:[
+["🚻 Washrooms","Platforms 3 & 7."],
+["🛗 Lifts","Main concourse & south bridge."],
+["🚪 Exits","Park Town & Wall Tax Road exits."],
+["🎟 Ticket Counters","Reservation complex building."],
+["🪑 Waiting Areas","AC hall near Platform 5."],
+["🅿 Parking","Moore Market parking zone."]
+]},
+
+howrah:{title:"Howrah Junction",facilities:[
+["🚻 Washrooms","Platforms 8 & 14."],
+["🛗 Lifts","New complex building."],
+["🚪 Exits","Old complex & new complex exits."],
+["🎟 Ticket Counters","Ground floor booking hall."],
+["🪑 Waiting Areas","AC lounge near Platform 12."],
+["🅿 Parking","Riverside taxi & car parking."]
+]},
+
+bangalore:{title:"Bangalore City",facilities:[
+["🚻 Washrooms","Platforms 1 & 6."],
+["🛗 Lifts","Near Platform 4 bridge."],
+["🚪 Exits","Main exit towards Majestic."],
+["🎟 Ticket Counters","Block A reservation counter."],
+["🪑 Waiting Areas","Premium lounge near Platform 2."],
+["🅿 Parking","Underground parking main gate."]
+]},
+
+hyderabad:{title:"Hyderabad Deccan",facilities:[
+["🚻 Washrooms","Platforms 2 & 6."],
+["🛗 Lifts","Near Nampally entrance."],
+["🚪 Exits","Main exit towards public gardens."],
+["🎟 Ticket Counters","Reservation office ground floor."],
+["🪑 Waiting Areas","AC waiting hall near Platform 4."],
+["🅿 Parking","Parking near main road side."]
+]},
+
+ahmedabad:{title:"Ahmedabad Junction",facilities:[
+["🚻 Washrooms","Platforms 1 & 10."],
+["🛗 Lifts","Available at central FOB."],
+["🚪 Exits","Kalupur side main exit."],
+["🎟 Ticket Counters","Booking office east wing."],
+["🪑 Waiting Areas","Executive lounge Platform 1."],
+["🅿 Parking","Multi-level parking near entry."]
+]},
+
+jaipur:{title:"Jaipur Junction",facilities:[
+["🚻 Washrooms","Platforms 2 & 5."],
+["🛗 Lifts","Near overbridge central area."],
+["🚪 Exits","Main exit towards station road."],
+["🎟 Ticket Counters","Reservation hall first floor."],
+["🪑 Waiting Areas","AC lounge near Platform 3."],
+["🅿 Parking","Car & bike parking front side."]
+]},
+
+lucknow:{title:"Lucknow Junction",facilities:[
+["🚻 Washrooms","Platforms 1 & 4."],
+["🛗 Lifts","Near Charbagh entrance."],
+["🚪 Exits","Main exit towards metro side."],
+["🎟 Ticket Counters","Ground floor booking office."],
+["🪑 Waiting Areas","Executive lounge Platform 2."],
+["🅿 Parking","Parking near main gate."]
+]},
+
+varanasi:{title:"Varanasi Junction",facilities:[
+["🚻 Washrooms","Platforms 3 & 6."],
+["🛗 Lifts","Available near FOB north side."],
+["🚪 Exits","Main exit towards cantonment road."],
+["🎟 Ticket Counters","Reservation office near entrance."],
+["🪑 Waiting Areas","AC hall near Platform 4."],
+["🅿 Parking","Parking area opposite main gate."]
+]}
+};
+
+function loadStation(key, element){
+const data = stationData[key];
+document.getElementById("stationTitle").innerText =
+data.title + " - Facility Finder";
+
+const container = document.getElementById("facilityContainer");
+container.innerHTML = "";
+
+data.facilities.forEach(item=>{
+container.innerHTML += `
+<div class="card">
+<h2>${item[0]}</h2>
+<p>${item[1]}</p>
+</div>`;
+});
+
+document.querySelectorAll(".station").forEach(s=>s.classList.remove("active"));
+element.classList.add("active");
+}
+
+loadStation("ndls", document.querySelector(".station"));
+</script>
+
+</body>
+</html>

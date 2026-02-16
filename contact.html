@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | RailNav</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    /* CONTACT CARD */
+    .contact-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      border-radius: 22px;
+      padding: 40px 35px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      text-align: center;
+    }
+
+    .contact-card h1 {
+      color: #4da6ff;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      color: #d0d7e6;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+
+    /* CONTACT ITEMS */
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 14px 18px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .contact-item:hover {
+      background: #4da6ff;
+      color: #000;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(77,166,255,0.4);
+    }
+
+    /* ICON STYLE */
+    .icon {
+      font-size: 1.2rem;
+    }
+
+    /* FOOTER TEXT */
+    .footer-text {
+      margin-top: 28px;
+      font-size: 0.8rem;
+      color: #aab4cc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contact-card">
+    <h1>📞 Contact Me</h1>
+    <p>Feel free to connect with me for collaboration or queries</p>
+
+    <a class="contact-item" href="https://www.linkedin.com/in/govind2332/" target="_blank">
+      <span class="icon">💼</span> LinkedIn
+    </a>
+
+    <a class="contact-item" href="https://wa.me/918957679461" target="_blank">
+      <span class="icon">💬</span> WhatsApp
+    </a>
+
+    <a class="contact-item" href="mailto:govindkushwaha2332@gmail.com">
+      <span class="icon">📧</span> Email
+    </a>
+
+    <a class="contact-item" href="https://www.instagram.com/govind__958?igsh=MTQ4ZzNkMDhtcjdpYQ==" target="_blank">
+      <span class="icon">📸</span> Instagram
+    </a>
+
+    <a class="contact-item" href="https://www.facebook.com/share/17zFc3n1ej/" target="_blank">
+      <span class="icon">📘</span> Facebook
+    </a>
+
+    <div class="footer-text">
+      RailNav · Hackathon Project · Indian Railways
+    </div>
+  </div>
+
+</body>
+</html>
